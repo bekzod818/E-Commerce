@@ -1,0 +1,8 @@
+asgiref==3.5.0
+Django==4.0.1
+environs==9.4.0
+marshmallow==3.14.1
+Pillow==9.0.0
+psycopg2-binary==2.9.3
+python-dotenv==0.19.2
+sqlparse==0.4.2

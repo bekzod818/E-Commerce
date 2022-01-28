@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <!-- Begin Li's Breadcrumb Area -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <ul>
+                    <li><a href="{% url 'product_list' %}">Home</a></li>
+                    <li class="active">Shopping Cart</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Li's Breadcrumb Area End Here -->
+    <!--Shopping Cart Area Strat-->
+    <div class="Shopping-cart-area pt-60 pb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="table-content table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="li-product-thumbnail">images</th>
+                                <th class="cart-product-name">Product</th>
+                                <th class="li-product-price">Unit Price</th>
+                                <th class="li-product-quantity">Quantity</th>
+                                <th class="li-product-remove">remove</th>
+                                <th class="li-product-subtotal">Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in cart %}
+                                {% with product=item.product %}
+                                    <tr>
+                                        {#                                            <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a>#}
+                                        {#                                            </td>#}
+                                        {% if product.image %}
+                                            <td class="li-product-thumbnail"><a href="{{ product.image.url }}"><img
+                                                    src="{{ product.image.url }}"
+                                                    alt="Li's Product Image"></a>
+                                            </td>
+                                        {% endif %}
+                                        <td class="li-product-name"><a
+                                                href="{{ product.get_absolute_url }}">{{ product.name }}</a></td>
+                                        <td class="li-product-price"><span class="amount">${{ item.price }}</span>
+                                        </td>
+                                        <td class="quantity">
+                                            <form action="{% url 'cart_add' product.id %}" method="POST">
+                                                {% csrf_token %}
+                                                {#                                                    {{ item.update_quantity_form.quantity }}#}
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" value="{{ item.quantity }}"
+                                                           type="text" name="quantity">
+                                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i>
+                                                    </div>
+                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                                </div>
+                                                {{ item.update_quantity_form.override }}
+                                                <input type="submit" value="Update Cart">
+                                            </form>
+                                        </td>
+                                        <td class="li-product-remove">
+                                            <form action="{% url 'cart_remove' product.id %}" method="POST">
+                                                {% csrf_token %}
+                                                <input type="submit" value="Remove">
+                                            </form>
+                                        </td>
+                                        <td class="product-subtotal"><span
+                                                class="amount">${{ item.total_price }}</span></td>
+                                    </tr>
+                                {% endwith %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 ml-auto">
+                            <div class="cart-page-total">
+                                <h2>Cart totals</h2>
+                                <ul>
+                                    {#                                        <li>Subtotal <span>$130.00</span></li>#}
+                                    <li>Total <span>${{ cart.get_total_price }}</span></li>
+                                </ul>
+                                <a href="{% url 'product_list' %}">Continue shopping</a>
+                                <a href="">Proceed to checkout</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Shopping Cart Area End-->
+{% endblock %}
