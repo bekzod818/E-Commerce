@@ -32,56 +32,26 @@
                                         </a>
                                     </div>
                                 {% endif %}
+                                {% for photo in photos %}
                                 <div class="lg-image">
-                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/2.jpg"
+                                    <a class="popup-img venobox vbox-item" href="{{ photo.images.url }}"
                                        data-gall="myGallery">
-                                        <img src="images/product/large-size/2.jpg" alt="product image">
+                                        <img src="{{ photo.images.url }}" alt="product image">
                                     </a>
                                 </div>
-                                <div class="lg-image">
-                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/3.jpg"
-                                       data-gall="myGallery">
-                                        <img src="images/product/large-size/3.jpg" alt="product image">
-                                    </a>
-                                </div>
-                                <div class="lg-image">
-                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/4.jpg"
-                                       data-gall="myGallery">
-                                        <img src="images/product/large-size/4.jpg" alt="product image">
-                                    </a>
-                                </div>
-                                <div class="lg-image">
-                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/5.jpg"
-                                       data-gall="myGallery">
-                                        <img src="images/product/large-size/5.jpg" alt="product image">
-                                    </a>
-                                </div>
-                                <div class="lg-image">
-                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/6.jpg"
-                                       data-gall="myGallery">
-                                        <img src="images/product/large-size/6.jpg" alt="product image">
-                                    </a>
-                                </div>
+                                {% endfor %}
                             </div>
+                            {% if photos %}
                             <div class="product-details-thumbs slider-thumbs-1">
                                 <div class="sm-image"><img src="{{ product.image.url }}" alt="product image thumb">
                                 </div>
-                                <div class="sm-image"><img src="images/product/small-size/2.jpg"
+                                {% for photo in photos %}
+                                <div class="sm-image"><img src="{{ photo.images.url }}"
                                                            alt="product image thumb">
                                 </div>
-                                <div class="sm-image"><img src="images/product/small-size/3.jpg"
-                                                           alt="product image thumb">
-                                </div>
-                                <div class="sm-image"><img src="images/product/small-size/4.jpg"
-                                                           alt="product image thumb">
-                                </div>
-                                <div class="sm-image"><img src="images/product/small-size/5.jpg"
-                                                           alt="product image thumb">
-                                </div>
-                                <div class="sm-image"><img src="images/product/small-size/6.jpg"
-                                                           alt="product image thumb">
-                                </div>
+                                {% endfor %}
                             </div>
+                            {% endif %}
                         </div>
                         <!--// Product Details Left -->
                     </div>

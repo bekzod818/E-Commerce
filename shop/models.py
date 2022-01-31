@@ -17,6 +17,7 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('product_list_by_category', args=[self.slug])
 
+
 #
 # class SubCategory(models.Model):
 #     name = models.CharField(max_length=200, db_index=True)
@@ -53,3 +54,11 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[self.id, self.slug])
+
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
+    images = models.ImageField(upload_to=f'products/%Y/%m/%d/{product.name}')
+
+    def __str__(self):
+        return self.product.name

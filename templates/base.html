@@ -230,13 +230,14 @@
                                             <span></span>
                                             <div class="minicart">
                                                 <ul class="minicart-product-list">
-                                                    <p class="minicart-total">SUBTOTAL: <span>${{ cart.get_total_price }}</span></p>
+                                                    <p class="minicart-total">SUBTOTAL:
+                                                        <span>${{ cart.get_total_price }}</span></p>
                                                     <div class="minicart-button">
                                                         <a href="{% url 'cart_detail' %}"
                                                            class="li-button li-button-dark li-button-fullwidth li-button-sm">
                                                             <span>View Full Cart</span>
                                                         </a>
-                                                        <a href="#"
+                                                        <a href="{% url 'order_create' %}"
                                                            class="li-button li-button-fullwidth li-button-sm">
                                                             <span>Checkout</span>
                                                         </a>

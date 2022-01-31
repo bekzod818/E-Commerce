@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Checkout Page {% endblock %}
+
+{% block content %}
+    <!-- Begin Li's Breadcrumb Area -->
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <ul>
+                    <li><a href="{% url 'product_list' %}">Home</a></li>
+                    <li class="active">Checkout</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Li's Breadcrumb Area End Here -->
+    <!--Checkout Area Strat-->
+    <div class="checkout-area pt-60 pb-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="checkbox-form">
+                            <h3>Billing Details</h3>
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
+                                        <label>First Name <span class="required">*</span></label>
+                                        <input placeholder="" type="text" name="first_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
+                                        <label>Last Name <span class="required">*</span></label>
+                                        <input placeholder="" type="text" name="last_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="checkout-form-list">
+                                        <label>Email Address <span class="required">*</span></label>
+                                        <input placeholder="" type="email" name="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="checkout-form-list">
+                                        <label>Address <span class="required">*</span></label>
+                                        <input placeholder="Street address" type="text" name="address">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
+                                        <label>Postcode / Zip <span class="required">*</span></label>
+                                        <input placeholder="" type="text" name="postal_code">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
+                                        <label>Phone <span class="required">*</span></label>
+                                        <input type="text" name="phone">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
+                                        <label>Town / City <span class="required">*</span></label>
+                                        <input type="text" name="city">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list">
+                                        <label>State / County <span class="required">*</span></label>
+                                        <input placeholder="" type="text" name="country">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="order-button-payment">
+                                        <input value="Place order" type="submit">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="your-order">
+                        <h3>Your order</h3>
+                        <div class="your-order-table table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="cart-product-name">Product</th>
+                                    <th class="cart-product-total">Total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for item in cart %}
+                                    <tr class="cart_item">
+                                        <td class="cart-product-name"> {{ item.product.name }}<strong
+                                                class="product-quantity">
+                                            × {{ item.quantity }}</strong></td>
+                                        <td class="cart-product-total"><span
+                                                class="amount">${{ item.total_price }}</span></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                <tr class="order-total">
+                                    <th>Order Total</th>
+                                    <td><strong><span class="amount">${{ cart.get_total_price }}</span></strong></td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Checkout Area End-->
+{% endblock %}
