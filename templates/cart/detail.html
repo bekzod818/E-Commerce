@@ -79,12 +79,33 @@
                         </table>
                     </div>
                     <div class="row">
+                        <div class="col-12">
+                            <div class="coupon-all">
+                                <form action="{% url 'apply' %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="coupon">
+                                        <input id="code" class="input-text" name="code" value=""
+                                               placeholder="Coupon code" type="text">
+                                        <input class="button" value="Apply coupon" type="submit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-5 ml-auto">
                             <div class="cart-page-total">
                                 <h2>Cart totals</h2>
                                 <ul>
-                                    {#                                        <li>Subtotal <span>$130.00</span></li>#}
-                                    <li>Total <span>${{ cart.get_total_price }}</span></li>
+                                    {% if cart.coupon %}
+                                        <li>Subtotal <span>${{ cart.get_total_price|floatformat:2 }}</span></li>
+                                        <li>"{{ cart.coupon.code }}" coupon<span>${{ cart.coupon.discount }}% off</span>
+                                        </li>
+                                        <li>Discount <span>- ${{ cart.get_discount|floatformat:2 }}</span></li>
+                                        <li>Total <span>${{ cart.get_total_price_after_discount|floatformat:2 }}</span></li>
+                                    {% else %}
+                                        <li>Total <span>${{ cart.get_total_price|floatformat:2 }}</span></li>
+                                    {% endif %}
                                 </ul>
                                 <a href="{% url 'product_list' %}">Continue shopping</a>
                                 <a href="{% url 'order_create' %}">Proceed to checkout</a>
