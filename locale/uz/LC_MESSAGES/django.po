@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-09 15:27+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: cart/forms.py:6
+msgid "Quantity"
+msgstr ""
+
+#: config/settings.py:134
+msgid "English"
+msgstr ""
+
+#: config/settings.py:135
+msgid "Russian"
+msgstr ""
+
+#: config/settings.py:136
+msgid "Uzbek"
+msgstr ""
+
+#: coupons/forms.py:6
+msgid "Coupon"
+msgstr ""
+
+#: orders/models.py:11
+msgid "first_name"
+msgstr ""
+
+#: orders/models.py:12
+msgid "last_name"
+msgstr ""
+
+#: orders/models.py:13
+msgid "email"
+msgstr ""
+
+#: orders/models.py:14
+msgid "phone"
+msgstr ""
+
+#: orders/models.py:15
+msgid "address"
+msgstr ""
+
+#: orders/models.py:16
+msgid "postal code"
+msgstr ""
+
+#: orders/models.py:17
+msgid "city"
+msgstr ""
+
+#: orders/models.py:18
+msgid "country"
+msgstr ""
+
+#: templates/base.html:61
+msgid "Telephone Enquiry"
+msgstr ""
+
+#: templates/base.html:72
+msgid "Setting"
+msgstr ""
+
+#: templates/base.html:75
+msgid "My Account"
+msgstr ""
+
+#: templates/base.html:76 templates/base.html:243
+#: templates/orders/create.html:14
+msgid "Checkout"
+msgstr ""
+
+#: templates/base.html:77
+msgid "Sign In"
+msgstr ""
+
+#: templates/base.html:84
+msgid "Currency"
+msgstr ""
+
+#: templates/base.html:96
+msgid "Language"
+msgstr ""
+
+#: templates/base.html:234
+msgid "SUBTOTAL"
+msgstr ""
+
+#: templates/base.html:239
+msgid "View Full Cart"
+msgstr ""
+
+#: templates/base.html:250
+msgid "Empty"
+msgstr ""
+
+#: templates/base.html:276 templates/orders/create.html:13
+msgid "Home"
+msgstr ""
+
+#: templates/base.html:284
+msgid "Shop"
+msgstr ""
+
+#: templates/base.html:329
+msgid "Blog"
+msgstr ""
+
+#: templates/base.html:366
+msgid "Pages"
+msgstr ""
+
+#: templates/base.html:408
+msgid "About Us"
+msgstr ""
+
+#: templates/base.html:409
+msgid "Contact"
+msgstr ""
+
+#: templates/orders/create.html:5
+msgid "Checkout Page"
+msgstr ""
+
+#: templates/orders/create.html:28
+msgid "Billing Details"
+msgstr ""
+
+#: templates/orders/create.html:33
+msgid "First Name"
+msgstr ""
+
+#: templates/orders/create.html:39
+msgid "Last Name"
+msgstr ""
+
+#: templates/orders/create.html:81
+msgid "Place order"
+msgstr ""
+
+#: templates/orders/create.html:90
+msgid "Your order"
+msgstr ""
+
+#: templates/orders/create.html:95
+msgid "Product"
+msgstr ""
+
+#: templates/orders/create.html:96
+msgid "Total"
+msgstr ""
+
+#: templates/orders/create.html:113
+msgid "Cart Subtotal"
+msgstr ""
+
+#: templates/orders/create.html:117
+#, python-format
+msgid ""
+"\n"
+"                                        <th>\"%(code)s\" (%(discount)s%% "
+"off)</th>\n"
+"                                        "
+msgstr ""
+
+#: templates/orders/create.html:123 templates/orders/create.html:130
+msgid "Order Total"
+msgstr ""
+
+#: templates/shop/product_detail.html:109
+msgid "Add to cart"
+msgstr ""
+
+#: templates/shop/product_detail.html:114
+msgid "Add to wishlist"
+msgstr ""

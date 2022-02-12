@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
-{% block title %} Checkout Page {% endblock %}
+{% block title %} {% trans 'Checkout Page' %} {% endblock %}
 
 {% block content %}
     <!-- Begin Li's Breadcrumb Area -->
@@ -9,8 +10,8 @@
         <div class="container">
             <div class="breadcrumb-content">
                 <ul>
-                    <li><a href="{% url 'product_list' %}">Home</a></li>
-                    <li class="active">Checkout</li>
+                    <li><a href="{% url 'product_list' %}">{% trans 'Home' %}</a></li>
+                    <li class="active">{% trans 'Checkout' %}</li>
                 </ul>
             </div>
         </div>
@@ -24,18 +25,18 @@
                     <form method="POST">
                         {% csrf_token %}
                         <div class="checkbox-form">
-                            <h3>Billing Details</h3>
+                            <h3>{% trans 'Billing Details' %}</h3>
                             <div class="row">
 
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
-                                        <label>First Name <span class="required">*</span></label>
+                                        <label>{% trans 'First Name' %} <span class="required">*</span></label>
                                         <input placeholder="" type="text" name="first_name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
-                                        <label>Last Name <span class="required">*</span></label>
+                                        <label>{% trans 'Last Name' %} <span class="required">*</span></label>
                                         <input placeholder="" type="text" name="last_name">
                                     </div>
                                 </div>
@@ -77,7 +78,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="order-button-payment">
-                                        <input value="Place order" type="submit">
+                                        <input value="{% trans 'Place order' %}" type="submit">
                                     </div>
                                 </div>
                             </div>
@@ -86,13 +87,13 @@
                 </div>
                 <div class="col-lg-6 col-12">
                     <div class="your-order">
-                        <h3>Your order</h3>
+                        <h3>{% trans 'Your order' %}</h3>
                         <div class="your-order-table table-responsive">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th class="cart-product-name">Product</th>
-                                    <th class="cart-product-total">Total</th>
+                                    <th class="cart-product-name">{% trans 'Product' %}</th>
+                                    <th class="cart-product-total">{% trans 'Total' %}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -109,22 +110,24 @@
                                 <tfoot>
                                 {% if cart.coupon %}
                                     <tr class="cart-subtotal">
-                                        <th>Cart Subtotal</th>
+                                        <th>{% trans 'Cart Subtotal' %}</th>
                                         <td><span class="amount">${{ cart.get_total_price|floatformat:2 }}</span></td>
                                     </tr>
                                     <tr class="cart-subtotal">
-                                        <th>"{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% off)</th>
+                                        {% blocktrans with code=cart.coupon.code discount=cart.coupon.discount %}
+                                        <th>"{{ code }}" ({{ discount }}% off)</th>
+                                        {% endblocktrans %}
                                         <td><span class="amount">- ${{ cart.get_discount|floatformat:2 }}</span></td>
                                     </tr>
                                     <tr class="order-total">
-                                        <th>Order Total</th>
+                                        <th>{% trans 'Order Total' %}</th>
                                         <td><strong><span
                                                 class="amount">${{ cart.get_total_price_after_discount|floatformat:2 }}</span></strong>
                                         </td>
                                     </tr>
                                 {% else %}
                                     <tr class="order-total">
-                                        <th>Order Total</th>
+                                        <th>{% trans 'Order Total' %}</th>
                                         <td><strong><span class="amount">${{ cart.get_total_price|floatformat:2 }}</span></strong>
                                         </td>
                                     </tr>

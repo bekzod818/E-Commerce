@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -57,7 +58,7 @@
                     <div class="col-lg-3 col-md-4">
                         <div class="header-top-left">
                             <ul class="phone-wrap">
-                                <li><span>Telephone Enquiry:</span><a href="#">(+123) 123 321 345</a></li>
+                                <li><span>{% trans 'Telephone Enquiry' %}:</span><a href="#">(+123) 123 321 345</a></li>
                             </ul>
                         </div>
                     </div>
@@ -68,19 +69,19 @@
                             <ul class="ht-menu">
                                 <!-- Begin Setting Area -->
                                 <li>
-                                    <div class="ht-setting-trigger"><span>Setting</span></div>
+                                    <div class="ht-setting-trigger"><span>{% trans 'Setting' %}</span></div>
                                     <div class="setting ht-setting">
                                         <ul class="ht-setting-list">
-                                            <li><a href="login-register.html">My Account</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="login-register.html">Sign In</a></li>
+                                            <li><a href="login-register.html">{% trans 'My Account' %}</a></li>
+                                            <li><a href="checkout.html">{% trans 'Checkout' %}</a></li>
+                                            <li><a href="login-register.html">{% trans 'Sign In' %}</a></li>
                                         </ul>
                                     </div>
                                 </li>
                                 <!-- Setting Area End Here -->
                                 <!-- Begin Currency Area -->
                                 <li>
-                                    <span class="currency-selector-wrapper">Currency :</span>
+                                    <span class="currency-selector-wrapper">{% trans 'Currency' %} :</span>
                                     <div class="ht-currency-trigger"><span>USD $</span></div>
                                     <div class="currency ht-currency">
                                         <ul class="ht-setting-list">
@@ -92,7 +93,7 @@
                                 <!-- Currency Area End Here -->
                                 <!-- Begin Language Area -->
                                 <li>
-                                    <span class="language-selector-wrapper">Language :</span>
+                                    <span class="language-selector-wrapper">{% trans 'Language' %} :</span>
                                     <div class="ht-language-trigger"><span>English</span></div>
                                     <div class="language ht-language">
                                         <ul class="ht-setting-list">
@@ -230,23 +231,23 @@
                                             <span></span>
                                             <div class="minicart">
                                                 <ul class="minicart-product-list">
-                                                    <p class="minicart-total">SUBTOTAL:
+                                                    <p class="minicart-total">{% trans 'SUBTOTAL' %}:
                                                         <span>${{ cart.get_total_price }}</span></p>
                                                     <div class="minicart-button">
                                                         <a href="{% url 'cart_detail' %}"
                                                            class="li-button li-button-dark li-button-fullwidth li-button-sm">
-                                                            <span>View Full Cart</span>
+                                                            <span>{% trans 'View Full Cart' %}</span>
                                                         </a>
                                                         <a href="{% url 'order_create' %}"
                                                            class="li-button li-button-fullwidth li-button-sm">
-                                                            <span>Checkout</span>
+                                                            <span>{% trans 'Checkout' %}</span>
                                                         </a>
                                                     </div>
                                             </div>
                                         {% else %}
                                             <div class="hm-minicart-trigger">
                                                 <span class="item-icon"></span>
-                                                <span class="item-text">Empty
+                                                <span class="item-text">{% trans 'Empty' %}
                                                     <span class="cart-item-count">0</span>
                                                 </span>
                                             </div>
@@ -272,7 +273,7 @@
                         <div class="hb-menu hb-menu-2">
                             <nav>
                                 <ul>
-                                    <li class="dropdown-holder"><a href="index.html">Home</a>
+                                    <li class="dropdown-holder"><a href="index.html">{% trans 'Home' %}</a>
                                         <ul class="hb-dropdown">
                                             <li><a href="index.html">Home One</a></li>
                                             <li><a href="index-2.html">Home Two</a></li>
@@ -280,7 +281,7 @@
                                             <li><a href="index-4.html">Home Four</a></li>
                                         </ul>
                                     </li>
-                                    <li class="megamenu-holder"><a href="shop-left-sidebar.html">Shop</a>
+                                    <li class="megamenu-holder"><a href="shop-left-sidebar.html">{% trans 'Shop' %}</a>
                                         <ul class="megamenu hb-megamenu">
                                             <li><a href="shop-left-sidebar.html">Shop Page Layout</a>
                                                 <ul>
@@ -325,7 +326,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="dropdown-holder"><a href="blog-left-sidebar.html">Blog</a>
+                                    <li class="dropdown-holder"><a href="blog-left-sidebar.html">{% trans 'Blog' %}</a>
                                         <ul class="hb-dropdown">
                                             <li class="sub-dropdown-holder"><a href="blog-left-sidebar.html">Blog Grid
                                                 View</a>
@@ -362,7 +363,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="megamenu-static-holder"><a href="index.html">Pages</a>
+                                    <li class="megamenu-static-holder"><a href="index.html">{% trans 'Pages' %}</a>
                                         <ul class="megamenu hb-megamenu">
                                             <li><a href="blog-left-sidebar.html">Blog Layouts</a>
                                                 <ul>
@@ -404,8 +405,8 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="about-us.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="about-us.html">{% trans 'About Us' %}</a></li>
+                                    <li><a href="contact.html">{% trans 'Contact' %}</a></li>
                                     <!-- Begin Header Bottom Menu Information Area -->
                                     <li class="hb-info f-right p-0 d-sm-none d-lg-block">
                                         <span>6688 London, Greater London BAS 23JK, UK</span>

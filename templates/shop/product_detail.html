@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 
 {% block content %}
@@ -33,24 +34,24 @@
                                     </div>
                                 {% endif %}
                                 {% for photo in photos %}
-                                <div class="lg-image">
-                                    <a class="popup-img venobox vbox-item" href="{{ photo.images.url }}"
-                                       data-gall="myGallery">
-                                        <img src="{{ photo.images.url }}" alt="product image">
-                                    </a>
-                                </div>
+                                    <div class="lg-image">
+                                        <a class="popup-img venobox vbox-item" href="{{ photo.images.url }}"
+                                           data-gall="myGallery">
+                                            <img src="{{ photo.images.url }}" alt="product image">
+                                        </a>
+                                    </div>
                                 {% endfor %}
                             </div>
                             {% if photos %}
-                            <div class="product-details-thumbs slider-thumbs-1">
-                                <div class="sm-image"><img src="{{ product.image.url }}" alt="product image thumb">
+                                <div class="product-details-thumbs slider-thumbs-1">
+                                    <div class="sm-image"><img src="{{ product.image.url }}" alt="product image thumb">
+                                    </div>
+                                    {% for photo in photos %}
+                                        <div class="sm-image"><img src="{{ photo.images.url }}"
+                                                                   alt="product image thumb">
+                                        </div>
+                                    {% endfor %}
                                 </div>
-                                {% for photo in photos %}
-                                <div class="sm-image"><img src="{{ photo.images.url }}"
-                                                           alt="product image thumb">
-                                </div>
-                                {% endfor %}
-                            </div>
                             {% endif %}
                         </div>
                         <!--// Product Details Left -->
@@ -92,7 +93,7 @@
                                 {#                            </div>#}
                                 <div class="single-add-to-cart">
                                     <form action="{% url 'cart_add' product.id %}" method="post" class="cart-quantity">
-{#                                        {{ cart_product_form }}#}
+                                        {#                                        {{ cart_product_form }}#}
                                         {% csrf_token %}
                                         <div class="quantity">
                                             <label>Quantity</label>
@@ -104,12 +105,13 @@
                                                 <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                             </div>
                                         </div>
-                                        <button class="add-to-cart mt-2" type="submit">Add to cart</button>
+                                        <button class="add-to-cart mt-2"
+                                                type="submit">{% trans 'Add to cart' %}</button>
                                     </form>
                                 </div>
                                 <div class="product-additional-info pt-25">
-                                    <a class="wishlist-btn" href="wishlist.html"><i class="fa fa-heart-o"></i>Add to
-                                        wishlist</a>
+                                    <a class="wishlist-btn" href="wishlist.html"><i
+                                            class="fa fa-heart-o"></i>{% trans 'Add to wishlist' %}</a>
                                     <div class="product-social-sharing pt-25">
                                         <ul>
                                             <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a>
